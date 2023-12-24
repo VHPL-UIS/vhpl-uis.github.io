@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://vhpl-uis.github.io/sitemap.xml
+Sitemap: https://vhpl-uis.github.io/blog//sitemap.xml
