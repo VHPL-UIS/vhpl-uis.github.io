@@ -19,5 +19,5 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Currently, I'm a PhD student in the [RELAB group](https://www.uis.no/en/relab-reliable-systems-lab) at the University of Stavanger, thrilled to work with [Leander Jehl](https://scholar.google.com/citations?user=-u9lqFYAAAAJ&hl=no) and [Vero Estrada-Galiñanes](https://scholar.google.com/citations?user=HxT7u9sAAAAJ&hl=en) from EPFL. 
+Currently, I'm a PhD student in the [RELAB group](https://www.uis.no/en/relab-reliable-systems-lab) at the [University of Stavanger](https://www.uis.no/nb), thrilled to work with [Leander Jehl](https://scholar.google.com/citations?user=-u9lqFYAAAAJ&hl=no) from [UiS](https://www.uis.no/nb) and [Vero Estrada-Galiñanes](https://scholar.google.com/citations?user=HxT7u9sAAAAJ&hl=en) from [EPFL](https://www.epfl.ch/en/). 
 My main research interests are fairness in decentralized P2P networks, token economics, and blockchain technologies. I am always open to discussion about these topics, so feel free to contact me.
