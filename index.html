@@ -25,63 +25,6 @@
             padding: 0 20px;
         }
 
-        /* Matrix Rain Effect */
-        .matrix-rain {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .matrix-column {
-            position: absolute;
-            top: -100%;
-            color: #0f0;
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            font-weight: bold;
-            text-shadow: 0 0 5px #0f0;
-            opacity: 0.8;
-            white-space: nowrap;
-            animation: matrix-fall linear infinite;
-        }
-
-        @keyframes matrix-fall {
-            0% {
-                transform: translateY(-100vh);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        /* Matrix characters will fade from bright green to dark */
-        .matrix-char {
-            display: block;
-            transition: color 0.1s ease;
-        }
-
-        .matrix-char.bright {
-            color: #fff;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
-        }
-
-        .matrix-char.medium {
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
-        }
-
-        .matrix-char.dim {
-            color: #006600;
-            text-shadow: none;
-        }
-
         /* Header with glassmorphism effect */
         header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
@@ -542,9 +485,6 @@
     </style>
 </head>
 <body>
-    <!-- Matrix Rain Effect -->
-    <div class="matrix-rain" id="matrix-rain"></div>
-
     <header>
         <div class="container">
             <h1>Vahid Heidaripour Lakhani</h1>
@@ -730,70 +670,6 @@
     </footer>
 
     <script>
-        // Matrix Rain Effect
-        function createMatrixRain() {
-            const matrixContainer = document.getElementById('matrix-rain');
-            const matrixChars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
-            const columnWidth = 20;
-            const numColumns = Math.floor(window.innerWidth / columnWidth);
-            
-            function createColumn(index) {
-                const column = document.createElement('div');
-                column.className = 'matrix-column';
-                column.style.left = (index * columnWidth) + 'px';
-                
-                // Random column height (20-40 characters)
-                const columnHeight = Math.floor(Math.random() * 20) + 20;
-                let columnText = '';
-                
-                for (let i = 0; i < columnHeight; i++) {
-                    const randomChar = matrixChars.charAt(Math.floor(Math.random() * matrixChars.length));
-                    const brightness = i === 0 ? 'bright' : (i < 3 ? 'medium' : 'dim');
-                    columnText += `<span class="matrix-char ${brightness}">${randomChar}</span>`;
-                }
-                
-                column.innerHTML = columnText;
-                
-                // Random animation duration (8-15 seconds)
-                const duration = Math.random() * 7 + 8;
-                column.style.animationDuration = duration + 's';
-                
-                // Random delay
-                const delay = Math.random() * 5;
-                column.style.animationDelay = delay + 's';
-                
-                matrixContainer.appendChild(column);
-                
-                // Remove column after animation completes and create a new one
-                setTimeout(() => {
-                    if (column.parentNode) {
-                        column.parentNode.removeChild(column);
-                    }
-                    createColumn(index);
-                }, (duration + delay) * 1000);
-            }
-            
-            // Create initial columns
-            for (let i = 0; i < numColumns; i++) {
-                setTimeout(() => createColumn(i), Math.random() * 2000);
-            }
-            
-            // Handle window resize
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    // Clear existing columns
-                    matrixContainer.innerHTML = '';
-                    // Recreate with new width
-                    const newNumColumns = Math.floor(window.innerWidth / columnWidth);
-                    for (let i = 0; i < newNumColumns; i++) {
-                        setTimeout(() => createColumn(i), Math.random() * 1000);
-                    }
-                }, 250);
-            });
-        }
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -837,9 +713,6 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
-
-        // Initialize matrix rain when page loads
-        document.addEventListener('DOMContentLoaded', createMatrixRain);
 
         // Add typing effect to header
         function typeWriter(element, text, speed = 100) {
